@@ -22,9 +22,10 @@ const oneDay = 60 * 60 * 24;
     CacheModule.register({
       ttl: oneDay,
       store: redisStore,
-      host: process.env.REDIS_URL,
+      host: process.env.REDISHOST,
+      port: +process.env.REDISPORT,
       // family: 6,
-      password: process.env.REDIS_PASS,
+      password: process.env.REDISPASSWORD,
     }),
     HellofreshModule,
     PlaceholderModule,

@@ -4,6 +4,6 @@ import { PlaceholderController } from './placeholder.controller';
 
 @Module({
   controllers: [PlaceholderController],
-  providers: [PlaceholderService]
+  providers: [PlaceholderService],
 })
 export class PlaceholderModule {}
