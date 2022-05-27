@@ -3,6 +3,7 @@ version: '2'
 services:
   redis:
     image: docker.io/bitnami/redis:6.2
+    restart: unless-stopped
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
@@ -14,6 +15,7 @@ services:
 
   redis-commander:
     image: rediscommander/redis-commander:latest
+    restart: unless-stopped
     environment:
       - REDIS_HOSTS=local:redis:6379
     ports:

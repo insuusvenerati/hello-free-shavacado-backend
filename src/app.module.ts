@@ -15,12 +15,15 @@ import { PlaceholderModule } from './placeholder/placeholder.module';
 import * as redisStore from 'cache-manager-ioredis';
 
 const oneDay = 60 * 60 * 24;
+const ENV = process.env.NODE_ENV;
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      envFilePath: !ENV ? '.env' : `.env.${ENV}`,
+    }),
     CacheModule.register({
-      ttl: oneDay,
+      ttl: 1,
       store: redisStore,
       host: process.env.REDISHOST,
       port: +process.env.REDISPORT,
